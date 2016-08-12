@@ -21,7 +21,7 @@ class HistoryViewController: UIViewController,UICollectionViewDelegate,UICollect
     @IBOutlet weak var mSearchButton: UIButton!
     @IBOutlet weak var mCartButton: UIButton!
     
-    let label = UILabel()
+    let label = UILabel() 
     
     var mHistoryViewModelObj : HistoryViewModel! //object of history view model
     var collectionViewCell : CollectionViewCell! //object of collection view cell
@@ -74,7 +74,7 @@ class HistoryViewController: UIViewController,UICollectionViewDelegate,UICollect
         let history : SubCategorylist? = mHistoryViewModelObj.mHistoryList[indexPath.row]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
       
-        Utility().mBindCollectionViewCell(cell, subCategory: history!)
+        //Utility().mBindCollectionViewCell(cell, subCategory: history!)
 
         return cell
     }

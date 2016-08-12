@@ -35,6 +35,8 @@ class SubCategorylist {
     var downloadUrl : Observable<String>
     var imageUrl : String?
     var totalCount : Int
+    var ObImage : Observable<UIImage>?
+    
     
     init(title : String,duration : String,downloadUrl : String,imageUrl : String,totalCount : Int){
         self.title = Observable(title)

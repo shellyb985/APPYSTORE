@@ -20,10 +20,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView! //to show video image loading
     
-    @IBOutlet weak var VideoDurationLabel: UILabel!
+    @IBOutlet weak var VideoDurationLabel: UILabel! //to show video duration
     
+    @IBOutlet weak var durationDisplayView: UIView!
     
-    var imgUrl : String!
+    @IBOutlet weak var videoImageInDuration: UIImageView!
+    
+    var imgUrl : String! //to store video image url
     
     override func awakeFromNib() {
         super.awakeFromNib()

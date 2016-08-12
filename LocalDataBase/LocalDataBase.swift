@@ -19,7 +19,6 @@ class LocalDataBase: NSObject {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         dataBasePath = dirPath[0] + "/AppyStoreDatabase.db"
         
-        print(dataBasePath)
         if(fileManager.fileExistsAtPath(dataBasePath)) {
             let AppyStoreDataBase = FMDatabase(path: dataBasePath )
             if (AppyStoreDataBase == nil) {
@@ -105,8 +104,6 @@ class LocalDataBase: NSObject {
             let result : FMResultSet? = AppyStoreDataBase.executeQuery(querySql, withArgumentsInArray: nil)
             if (result?.next() == true) {
                 while result!.next() {
-//                    let category = categorylist(name: Observable(result!.stringForColumn("category_name")),image: result!.stringForColumn("image_path"), cId: Int((result?.stringForColumn("category_id"))!)!, pId: Int((result?.intForColumn("parent_category_id"))!), totalCount: Int((result?.intForColumn("TotalCount"))!))
-//                    categories.append(category)
                     
                     let category = categorylist(name: result!.stringForColumn("category_name"), image: result!.stringForColumn("image_path"), cId: Int((result?.stringForColumn("category_id"))!)!, pId: Int((result?.intForColumn("parent_category_id"))!), totalCount: Int((result?.intForColumn("TotalCount"))!))
                     categories.append(category)
@@ -119,7 +116,7 @@ class LocalDataBase: NSObject {
         }
         return categories
     }
-    
+    //method to fetch history details
     func mFetchHistoryDetails() -> [SubCategorylist]  {
         var history = [SubCategorylist]()
         let AppyStoreDataBase = FMDatabase(path: dataBasePath)
@@ -133,8 +130,7 @@ class LocalDataBase: NSObject {
             if (result != nil && result!.next() == true) {
                 print("Data fetched")
                 while result.next() {
-//                    let category = SubCategorylist(title: Observable(result.stringForColumn("title")), duration: Observable(result.stringForColumn("content_duration")), downloadUrl: Observable(result.stringForColumn("DwnLUrl")), imageUrl: result.stringForColumn("image_path"), totalCount: 0)
-                    
+
                     let category = SubCategorylist(title: result.stringForColumn("title"), duration: result.stringForColumn("content_duration"), downloadUrl: result.stringForColumn("DwnLUrl"), imageUrl: result.stringForColumn("image_path")!, totalCount: 0)
                     
                     history.append(category)
@@ -146,7 +142,6 @@ class LocalDataBase: NSObject {
             
             AppyStoreDataBase.close()  //closing database
         }
-        print(history)
         return history
     }
 

@@ -81,7 +81,7 @@ class SearchBarViewController: UIViewController, UICollectionViewDataSource,UICo
         let searchCategory : SubCategorylist? = mSearchViewModelObj.mGetSearchCategory(indexPath.row)
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         
-        Utility().mBindCollectionViewCell(cell, subCategory: searchCategory!)
+       // Utility().mBindCollectionViewCell(cell, subCategory: searchCategory!)
 
         return cell
     }

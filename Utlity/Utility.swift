@@ -16,14 +16,13 @@ import SystemConfiguration
 
 
 class Utility: NSObject {
-    
-    var mVideoPlayer : AVPlayer!
-    var mPlayerViewController : AVPlayerViewController!
-    var cache = NSCache()
 
-    //fetch image from string url
+    var cache = NSCache() //to store cached video image
+
+    //fetch image from string url(not using)
     func fetchImage(url : String) -> Operation<UIImage, NSError> {
         return Operation { observe in
+            //request video imagge
             let request = Alamofire.request(.GET, NSURL(string: "")!).response { request, response, data, error in
                 if data != nil {
                     observe.next(UIImage(data: data!)!)
@@ -39,14 +38,14 @@ class Utility: NSObject {
             }
         }
     }
-    
-    func mBindCollectionViewCell(cell : CollectionViewCell , subCategory : SubCategorylist) {
+    //setting label,image, duration for collection view cell()
+    func mBindCollectionViewCell(cell : CollectionViewCell , subCategory : SubCategorylist,collectionViewRef : UICollectionView,index : NSIndexPath) {
         let blank = UIImage(named: "loading_img")
         cell.VideoImageView.image = blank
-        let image = subCategory.imageUrl
+        let imageUrl = subCategory.imageUrl
         
         //setting layout for image view inside cell
-        cell.VideoImageView.image = UIImage(named: "angry_birds_space_image_rectangular_box")
+        cell.VideoImageView.image = UIImage(named: "videos_image_box_placeholder")
         cell.VideoImageView.layer.cornerRadius = 8
         cell.VideoImageView.clipsToBounds = true
         cell.VideoImageView.layer.borderWidth = 2
@@ -64,33 +63,43 @@ class Utility: NSObject {
         //activity indicator
         cell.activityIndicator.startAnimating()
         cell.activityIndicator.color = UIColor.whiteColor()
-        
+        //setting video label
         cell.VideoLabel.text = subCategory.title.value
-        cell.imgUrl = image
+        
+        cell.imgUrl = imageUrl
         //checking image is in cache or not
-        if let cachedImage = cache.objectForKey(image!) as? UIImage {
+        if let cachedImage = cache.objectForKey(imageUrl!) as? UIImage {
             cell.VideoImageView.image = cachedImage
         }
         else {
-            let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: image!)!) {(data, response, error) in
+            if imageUrl != "" {
+            // let task = NSURLSession.sharedSession().
+            let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: imageUrl!)!) {(data, response, error) in
                 dispatch_async(dispatch_get_main_queue(), {
                     if data != nil {
-                        if let img = UIImage(data: data!) {
-                            self.cache.setObject(img, forKey: image!)
-                            if cell.imgUrl == image {
-                                cell.VideoImageView.image = img
-                                cell.activityIndicator.stopAnimating()
-                                cell.activityIndicator.hidden = true
+                        if let image = UIImage(data: data!) {
+                            self.cache.setObject(image, forKey: imageUrl!)
+                            let visible = collectionViewRef.cellForItemAtIndexPath(index)
+                                if cell.imgUrl == imageUrl! {
+                                    cell.VideoImageView.image = image
+//                                    subCategory.ObImage?.value = image
+                            
+                                    cell.activityIndicator.stopAnimating()
+                                    cell.activityIndicator.hidden = true
+                                }
                             }
-                        }
                     }
                 })
             }
             task.resume()
+            }
+            else{
+                //collectionViewRef.reloadItemsAtIndexPaths([index])
+            }
         }
     }
     
-    //method to bind collection view cell and view model
+    //method to bind collection view cell and view model(not using)
     func mBindTo(cell : CollectionViewCell , list : SubCategorylist) {
         list.title.bindTo(cell.VideoLabel)
         

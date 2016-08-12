@@ -98,7 +98,7 @@ class SubCategoryViewContoller: UIViewController,UICollectionViewDataSource,UICo
         let subCategory : SubCategorylist? = mSubcategoryViewModelObj.mGetSubCategory(indexPath.row)
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         
-        Utility().mBindCollectionViewCell(cell, subCategory: subCategory!)
+        Utility().mBindCollectionViewCell(cell, subCategory: subCategory!,collectionViewRef: collectionView,index: indexPath)
         
         return cell
     }

@@ -29,8 +29,8 @@ class CustomViewFlowLayout: UICollectionViewFlowLayout {
     
     func setUpLayout (w : CGFloat ,h : CGFloat) {
         minimumInteritemSpacing = 3
-        minimumLineSpacing = 20
-        itemSize = CGSize(width: (w-65)/4, height: (h-130)/2)
+        minimumLineSpacing = 10
+        itemSize = CGSize(width: (w-65)/4, height: (h-110)/2)
         sectionInset = UIEdgeInsetsMake(20,10,10,10)
         scrollDirection = .Vertical
         

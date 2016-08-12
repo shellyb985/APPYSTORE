@@ -76,7 +76,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bk4-Ym-YAf">
                                         <rect key="frame" x="64" y="8" width="473" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V30-1E-RL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="-150"/>
+            <point key="canvasLocation" x="279" y="-133"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="64O-ON-343">
@@ -212,7 +212,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="6iu-A9-NjG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -264,22 +264,6 @@
                                     <action selector="mCartButtonPressed:" destination="WSE-Ch-P3e" eventType="touchUpInside" id="jcF-zu-c0L"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6d-OG-ZPW">
-                                <rect key="frame" x="0.0" y="560" width="120" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cSd-6x-pMg"/>
-                                    <constraint firstAttribute="width" secondItem="E6d-OG-ZPW" secondAttribute="height" multiplier="12:5" id="wCJ-nb-Xal"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="wCJ-nb-Xal"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="mBackButtonPressed:" destination="WSE-Ch-P3e" eventType="touchUpInside" id="c3i-iG-D7j"/>
-                                    <action selector="mHomeButtonPressed:" destination="UT2-6F-FPL" eventType="touchUpInside" id="RrA-Np-cOZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGJ-5L-tfw">
                                 <rect key="frame" x="120" y="560" width="120" height="40"/>
                                 <constraints>
@@ -322,6 +306,22 @@
                                     <outlet property="delegate" destination="WSE-Ch-P3e" id="qtU-Cs-a2I"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6d-OG-ZPW">
+                                <rect key="frame" x="0.0" y="560" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cSd-6x-pMg"/>
+                                    <constraint firstAttribute="width" secondItem="E6d-OG-ZPW" secondAttribute="height" multiplier="12:5" id="wCJ-nb-Xal"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="wCJ-nb-Xal"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="mBackButtonPressed:" destination="WSE-Ch-P3e" eventType="touchUpInside" id="c3i-iG-D7j"/>
+                                    <action selector="mHomeButtonPressed:" destination="UT2-6F-FPL" eventType="touchUpInside" id="RrA-Np-cOZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -369,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRz-mw-DQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="599"/>
+            <point key="canvasLocation" x="689" y="595"/>
         </scene>
         <!--Sub Category View Contoller-->
         <scene sceneID="IPo-r7-i4N">
@@ -424,7 +424,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEX-WQ-fDn">
                                         <rect key="frame" x="64" y="8" width="473" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -945,8 +945,8 @@
         <image name="imagebutton" width="288" height="163"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MEM-bQ-zmr"/>
-        <segue reference="rzI-H6-4xl"/>
         <segue reference="agE-rU-ZUI"/>
+        <segue reference="PWM-wa-fpP"/>
+        <segue reference="lZl-6j-Uaj"/>
     </inferredMetricsTieBreakers>
 </document>

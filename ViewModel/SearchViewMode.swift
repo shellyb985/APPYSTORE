@@ -13,8 +13,6 @@ import UIKit
 import ReactiveKit
 import ReactiveUIKit
 
-
-
 class SearchViewMode: PSearchViewModel {
     
     var mControllerObj : Controller!

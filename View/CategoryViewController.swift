@@ -79,7 +79,6 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     //method to return number of item in collection view section
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(mCategoryViewModelObj.mTotalCount)
         return mCategoryViewModelObj.mTotalCount
     }
     //method to return collection view cell
@@ -195,7 +194,6 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         let alertController = UIAlertController(title: "Sorry !!", message: "Cart is not available at this time", preferredStyle: UIAlertControllerStyle.Alert)
 
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            print("OK")
             
             self.mChangeButtonImage()
             self.mVideoButton.setImage(UIImage(named: "videobackground.png"), forState: UIControlState.Normal)
