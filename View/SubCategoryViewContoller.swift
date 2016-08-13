@@ -172,7 +172,16 @@ class SubCategoryViewContoller: UIViewController,UICollectionViewDataSource,UICo
     
     //method to update subcategory view controller
     func updataSubCategoryViewController(notification : NSNotification) {
-        collectionView.reloadData()
+        //collectionView.reloadData()
+        
+//        dispatchQueue.main.async(execute: { () -> Void in
+//            self.collectionView.reloadData()
+//        })
+        
+        
+        dispatch_async(dispatch_get_main_queue(), {
+          self.collectionView.reloadData()
+        })
     }
 
 }

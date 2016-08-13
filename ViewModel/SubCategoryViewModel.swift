@@ -43,7 +43,7 @@ class SubCategoryViewModel: NSObject {
         }
         //if not available then create dummy data and return it to coleciton view
         else {
-            //every eigth index it will call method to fetch data from rest..
+            //every eigth index it will call method to fetch data from rest..   
             if index%8 == 0 {
                 //method calling to fetch data
                 mFetchSubCategoryDetailsFromController(mCategory.categoryId, p_Id: mCategory.parentId, offSet: index)
@@ -77,9 +77,9 @@ class SubCategoryViewModel: NSObject {
             //incrementing
             mReceivedCategoryCount += 1
         }
-//        if mSubcategoryList.count < 9 {
+        if mSubcategoryList.count < 9 {
             NSNotificationCenter.defaultCenter().postNotificationName("UpdateSubCategoryViewController", object: nil)
-//        }
+        }
         if mTotalSubCategoryCount == mReceivedCategoryCount {
             NSNotificationCenter.defaultCenter().removeObserver(self, name: "UpdateSubCategoryViewModel", object: nil)
         }
